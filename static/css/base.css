@@ -1,0 +1,24 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    min-height: 100dvh;
+}
+
+body{
+    background-color: #7DBEFF;
+    /* background-color: #07437F;
+    background-color: #0F87FF;
+    background-color: #4F677F;
+    background-color: #0C6CCC; */
+}
+
+footer{
+    background-color: #4F677F;
+    color: white;
+    padding: 12px 0 12px 0;
+    text-align: center;
+}
+
+main{
+    min-height: calc(100dvh - 104px);
+}
