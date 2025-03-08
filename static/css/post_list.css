@@ -1,0 +1,19 @@
+
+.post-list {
+
+}
+
+
+.post-list .header {
+    display: flex;
+    align-items: center;
+}
+
+.post-list .header h1 {
+    flex: 1;
+    text-align: center;
+}
+
+.post-list .header a {
+    margin-right: 2rem;
+}
