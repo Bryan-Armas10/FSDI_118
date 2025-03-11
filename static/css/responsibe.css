@@ -1,0 +1,42 @@
+/* Tablet */
+@media (max-width:1007px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+    html{
+        font-size: 10px;
+    }
+
+    label{
+        cursor: pointer;
+    }
+
+    header{
+        height: max-content;
+        padding: 2%;
+    }
+
+    .nav-link {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Toggle function */
+    .nav-btn{
+        display: inline-flex;
+    }
+
+    #nav-check:not(:checked)~.nav-link{
+        height: 0px;
+        overflow: hidden;
+    }
+
+    #nav-check:checked~.nav-link{
+        height: auto;
+        overflow: auto;
+    }
+}
