@@ -25,18 +25,9 @@
         gap: 1rem;
     }
 
-    /* Toggle function */
-    .nav-btn{
-        display: inline-flex;
-    }
-
-    #nav-check:not(:checked)~.nav-link{
-        height: 0px;
-        overflow: hidden;
-    }
-
-    #nav-check:checked~.nav-link{
-        height: auto;
-        overflow: auto;
+    .post-list {
+        display: flex;
+        align-items: center;
+        margin-right: 5rem;
     }
 }
