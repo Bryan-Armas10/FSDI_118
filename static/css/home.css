@@ -6,3 +6,13 @@
     text-align: center;
     color: #aa3450;
 }
+
+.home p {
+    text-align:center;
+}
+
+.home img {
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

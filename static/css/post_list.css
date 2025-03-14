@@ -1,8 +1,8 @@
 
 .post-list {
-    
+    margin-left: auto;
+    margin-right: auto; 
 }
-
 
 .post-list .header {
     display: flex;
@@ -16,4 +16,53 @@
 
 .post-list .header a {
     margin-right: 2rem;
+}
+
+.post-list img {
+    width: 100%;
+}
+
+.post-list .card {
+    width: 18rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.post {
+    background-color: var(--neutral-color);
+}
+.post a {
+    color: var(--background-color);
+}
+
+@media screen and (max-width: 640px) {
+    /* style for smartphones */
+
+    .post-list .card {
+        width: calc(100% - 24px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .post-list .card h5 {
+        text-align: center;
+        font-size: 26px;
+    }
+
+    .post-list .card h6 {
+        text-align: center;
+        color: #5e5959;
+    }
+
+    .post-list .card a {
+        margin-top: 0.7rem;
+        display: block;
+        text-align: right;
+    }
+
+    .post-list .header h1 {
+        text-align: left;
+        padding-top: 0.5rem;
+    }
+    
 }

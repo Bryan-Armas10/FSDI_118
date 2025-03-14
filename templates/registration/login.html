@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
 
+{% load static %}
 {% block title %}
     Log In
 {% endblock %}
@@ -9,7 +9,10 @@
     <h1>Log In</h1>
     <form method="POST">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Log In" class="btn btn-success">
+        {{form.as_p}}
+        <button class="btn btn-primary">
+            <i class="fa-solid fa-arrow-right"></i>
+            Log in
+        </button>
     </form>
 {% endblock %}

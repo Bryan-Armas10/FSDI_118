@@ -12,12 +12,23 @@
     margin-left: auto;
     margin-right: auto;
 
-    border: 1px solid #CCC;
+    border: 1px solid var(--surface-color);
     border-radius: 4px;
     padding: 0.5rem;
-    background-color: #f4f1f1;
+    background-color: var(--neutral-color)
 }
 
 .create-post form label {
     font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+    /* style for smartphones */
+
+    .create-post form {
+        width: calc(100% - 24px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
 }
