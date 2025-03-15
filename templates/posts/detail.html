@@ -10,6 +10,27 @@
     <h2>{{post.title}}</h2>
     <h2>{{post.subtitle}}</h2>
     <h6>Author:{{post.author}}</h6>
-    <strong>Creted on: {{post.creation_on}}</strong>
+    <strong>Creted on: {{post.created_on}}</strong>
     <p>{{post.body}}</p>
+
+    <div class="row">
+        <h1>Comments</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <h6>{{post.author}}</h6>
+            <div class="field">
+                <label>Message</label>
+                <input type="text">
+            </div>
+            <div class="field">
+                <button>Send message</button>
+            </div>
+        </form>
+    </div>
+
+    <h6>Author:{{post.author}}</h6>
+    <h6>Message:{{post.message}}</h6>
+
+
 {% endblock %}

@@ -7,7 +7,7 @@ from django.views.generic import(
 from .models import Post, Status
 from django.urls import reverse_lazy
 from .forms import PostForm
-from django.contrib.auth.decorators import login_required # function viewa
+from django.contrib.auth.decorators import login_required # function view
 from django.contrib.auth.mixins import LoginRequiredMixin # class view
 
 """
@@ -35,7 +35,7 @@ class PostListView(ListView):
         return context
     
 class PostDetailView(DetailView):
-    template_name= "posts/list.html"
+    template_name= "posts/detail.html"
     model = Post
 
 

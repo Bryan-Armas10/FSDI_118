@@ -24,3 +24,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+###### Message ######
+class Message(models.Model):
+    author = models.ForeignKey(get_user_model(), on_delete= models.CASCADE)
+    message = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author
