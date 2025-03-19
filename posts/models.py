@@ -26,10 +26,22 @@ class Post(models.Model):
         return self.title
 
 ###### Message ######
+# class Message(models.Model):
+#     author = models.ForeignKey(get_user_model(), on_delete= models.CASCADE)
+#     message = models.TextField()
+#     created_on = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.message 
+    
+###################################################################################
+
 class Message(models.Model):
-    author = models.ForeignKey(get_user_model(), on_delete= models.CASCADE)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     message = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.author
+        return self.message
+

@@ -13,24 +13,43 @@
     <strong>Creted on: {{post.created_on}}</strong>
     <p>{{post.body}}</p>
 
-    <div class="row">
-        <h1>Comments</h1>
+    {% if user.username == post.author.username %}
+    <a class="btn btn-outline-dark" href="{% url 'post_update' post.id %}">Update post</a>
+    <a class="btn btn-outline-dark" href="{% url 'post_delete' post.id %}">Delete post</a>
+    {% endif %}
 
-        <form method="post">
-            {% csrf_token %}
-            <h6>{{post.author}}</h6>
-            <div class="field">
-                <label>Message</label>
-                <input type="text">
+    <hr>
+    
+    <h3>Comments</h3>
+    {% if comments %}
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <strong>{{ comment.author.username }}:</strong> {{ comment.message }} 
+                    <br><small>{{ comment.created_on }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No comments yet.</p>
+    {% endif %}
+    
+    <h4>Add a comment</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        {% if form_errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field, errors in form_errors.items %}
+                        <li>{{ field }}: {{ errors }}</li>
+                    {% endfor %}
+                </ul>
             </div>
-            <div class="field">
-                <button>Send message</button>
-            </div>
-        </form>
-    </div>
-
-    <h6>Author:{{post.author}}</h6>
-    <h6>Message:{{post.message}}</h6>
-
+        {% endif %}
+        
+        <button type="submit">Submit</button>
+    </form>
 
 {% endblock %}
