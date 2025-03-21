@@ -6,7 +6,7 @@ from django.views.generic import(
     UpdateView,
     DeleteView
 )
-from .models import Post, Status, Message
+from .models import Post, Status
 from .forms import MessageForm
 from django.urls import reverse_lazy
 from .forms import PostForm
@@ -47,13 +47,13 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         post = self.get_object()
-        comments = post.comments.all() 
+        comments = post.comments.all()
+        form = MessageForm()
         context['comments'] = comments
+        context['form'] = form
         return context
         
     def post(self, request, *args, **kwargs):
-        print("Got to post")
-        context = super().get_context_data(**kwargs)
         post = self.get_object()
         form = MessageForm(request.POST)
         if form.is_valid():
@@ -63,9 +63,12 @@ class PostDetailView(DetailView):
             new_comment.save()
             return redirect('post_detail', pk=post.id)  
         else:
-            print("Form Invalid")
+            context = self.get_context_data(**kwargs)
             context['form'] = form
-            context['form_errors'] = form.errors 
+            context['form_errors'] = form.errors
+            return self.render_to_response(context)
+            # context['form'] = form
+            # context['form_errors'] = form.errors 
 
     #############################
 
@@ -85,7 +88,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "posts/update.html"
     model = Post
     form_class = PostForm
-    succes_url = reverse_lazy("post_list")
+    success_url = reverse_lazy("post_list")
 
     def get_object(self, queryset = None):
         post = super().get_object(queryset)

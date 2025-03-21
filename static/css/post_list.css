@@ -19,7 +19,9 @@
 }
 
 .post-list img {
-    width: 100%;
+    width: 255px;
+    height: 150px;
+
 }
 
 .post-list .card {
