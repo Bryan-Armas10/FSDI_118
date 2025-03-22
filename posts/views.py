@@ -32,11 +32,21 @@ class PostListView(ListView):
     template_name = "posts/list.html"
     model =Post
 
+    def get_filtered_data(self, search):
+        if search:
+            print("Applying filter")
+            results = Post.objects.filter(title__contains=search).order_by("created_on").reverse()
+            return results
+        else:
+            return Post.objects.all().order_by("created_on").reverse()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        all_posts = Post.objects.all()
-        context["post_list"] = all_posts.order_by("created_on").reverse()
+        search_text = self.request.GET.get('search')
+        all_posts = self.get_filtered_data(search_text)
+        context["post_list"] = all_posts
         return context
+
     
 class PostDetailView(DetailView):
     template_name= "posts/detail.html"
