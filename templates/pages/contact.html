@@ -2,8 +2,14 @@
 
 {% load static %}
 
+{% block title %} Contact {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="center-column">
+<div class="row contact-page">
 
     <h1>Contact me</h1>
     <h2>Use the form below to say Hi!</h2>
@@ -11,20 +17,7 @@
     <form method="post" class="center-column">
         {% csrf_token %}
 
-        <div class="field">
-            <label>Name</label>
-            {{ form.name }}
-        </div>
-
-        <div class="field">
-            <label>Email</label>
-            {{ form.email }}
-        </div>
-
-        <div class="field">
-            <label>Message</label>
-            {{ form.message }}
-        </div>
+        {{ form.as_p }}
 
         <div class="field">
             <button>Send message</button>
