@@ -1,0 +1,105 @@
+/* Detail Page Styles */
+.container {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.container h1, .container h2 {
+    font-family: var(--lobster-font), cursive;
+    color: white
+}
+
+.container h2 {
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.container h6 {
+    font-family: var(--sans-font), sans-serif;
+    color: white;
+    font-weight: normal;
+}
+
+.container strong {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.container p {
+    font-family: var(--sans-font), sans-serif;
+    line-height: 1.6;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container li {
+    background-color: var(--background-color);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.container li strong {
+    color: var(--primary-color);
+}
+
+.container hr {
+    border: 1px solid var(--neutral-color);
+    margin: 20px 0;
+}
+
+.container .btn-outline-dark {
+    border-color: black;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.container .btn-outline-dark:hover {
+    background-color: var(--neutral-color);
+    color: white;
+}
+
+.container .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.container form {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container form input, .container form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid var(--neutral-color);
+}
+
+.container form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.container form button:hover {
+    background-color: var(--secondary-color);
+}
