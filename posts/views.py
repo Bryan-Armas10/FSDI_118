@@ -6,8 +6,7 @@ from django.views.generic import(
     UpdateView,
     DeleteView
 )
-from .models import Post, Status
-from .forms import MessageForm
+from .models import Post, Status, Comment
 from django.urls import reverse_lazy
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required # function view
@@ -52,36 +51,15 @@ class PostDetailView(DetailView):
     template_name= "posts/detail.html"
     model = Post
 
-    #### Message ####
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        post = self.get_object()
-        comments = post.comments.all()
-        form = MessageForm()
-        context['comments'] = comments
-        context['form'] = form
+
+        # Read all the comments for the post
+        post = self.object
+        comments = Comment.objects.filter(post=post)
+        context["comments"] = comments
+
         return context
-        
-    def post(self, request, *args, **kwargs):
-        post = self.get_object()
-        form = MessageForm(request.POST)
-        if form.is_valid():
-            new_comment = form.save(commit=False)
-            new_comment.post = post
-            new_comment.author = request.user
-            new_comment.save()
-            return redirect('post_detail', pk=post.id)  
-        else:
-            context = self.get_context_data(**kwargs)
-            context['form'] = form
-            context['form_errors'] = form.errors
-            return self.render_to_response(context)
-            # context['form'] = form
-            # context['form_errors'] = form.errors 
-
-    #############################
-
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     template_name = "posts/create.html"
@@ -120,3 +98,23 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
             raise PermissionDenied("You don't have permission to delete this post!")
         else:
             return post
+
+
+# Funtion based views
+
+def create_comment(request):
+    # get data
+    post_id = request.POST.get("post_id")
+    comment_text = request.POST.get("comment")
+    user = request.user
+    post = Post.objects.get(id=post_id)
+
+    # Create the comment record
+    comment = Comment.objects.create(
+        author = user,
+        content = comment_text,
+        post=post
+    )
+    comment.save()
+
+    return redirect("post_detail", pk=post_id)

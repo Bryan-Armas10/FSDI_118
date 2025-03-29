@@ -6,14 +6,19 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+
         <h1>Post #{{post.id}}</h1>
         <h2>{{post.title}}</h2>
         <h2>{{post.subtitle}}</h2>
+        {% if item.image %}
+        <img src="{{item.image.url}}" alt="post">
+        {% else %}
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1f4C-cWV03_czRXhL1THkOdS9RDnAtPxRnA&s" alt="post">
+        {% endif %}
         <h6>Author: {{post.author}}</h6>
         <strong>Created on: {{post.created_on}}</strong>
         <p>{{post.body}}</p>
@@ -25,27 +30,26 @@
 
         <hr>
 
-        <h3>Comments</h3>
-        {% if comments %}
-            <ul>
-                {% for comment in comments %}
-                    <li>
-                        <strong>{{ comment.author.username }}:</strong> {{ comment.message }}
-                        <br><small>{{ comment.created_on }}</small>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No comments yet.</p>
-        {% endif %}
+        <div class="comments-container">
+            <h4>Post Comments</h4>
 
-        <h4>Add a comment</h4>
+            {% for cm in comments %}
+                <div>
+                    <label class="author">{{cm.author}}</label>
+                    <p>{{cm.content}}</p>
+                    <label class="date">{{cm.created_on}}</label>
+                </div>
+            {% endfor %}
 
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
+            <div class="comment">
+                <label class="author">Create new comment</label>
+                <form method="post" action="{% url 'comment_create' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{post.id}}">
+                    <textarea name="comment" rows="3"></textarea>
+                    <button class="btn btn-sm btn-primary"><i class="fa-solid fa-comment"></i> Send >>></button>
+                </form>
+            </div>
+        </div>
 
-            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-comment"></i> Send</button>
-        </form>
-    </div>
 {% endblock %}
