@@ -2,7 +2,12 @@
     padding: 2rem 1rem;
 }
 
-.contact-page h3 {
+.contact-page h1 {
+    text-align: center;
+    color: darkcyan;
+}
+
+.contact-page h2 {
     text-align: center;
     color: darkcyan;
 }

@@ -1,4 +1,137 @@
+.comments-container {
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.comment {
+    border: 1px solid #6a6a6a;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: var(--neutral-color);
+    margin-bottom: 24px;
+}
+
+.comment .author {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.comment .date {
+    color: black;
+    text-align: right;
+    display: block;
+    margin-top: 8px;
+}
+
+.comment p {
+    font-size: 1rem;
+    color: black;
+    line-height: 1.6;
+}
+
+.comment textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.comment textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.comment button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.comment button:hover {
+    background-color: #0056b3;
+}
+
+img {
+    width: 255px;
+    height: 150px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+strong {
+    font-weight: bold;
+}
+
+p.lead {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+.btn-group .btn {
+    margin-right: 10px;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+hr.my-5 {
+    border-top: 2px solid #007bff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 .comments-container {
     margin-top: 1rem;
 }
@@ -21,4 +154,4 @@
     color: #555;
     text-align: right;
     display: block;
-}
+} */

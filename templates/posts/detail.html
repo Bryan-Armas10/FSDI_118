@@ -11,22 +11,24 @@
 
 {% block content %}
 
-        <h1>Post #{{post.id}}</h1>
-        <h2>{{post.title}}</h2>
-        <h2>{{post.subtitle}}</h2>
-        {% if item.image %}
-        <img src="{{item.image.url}}" alt="post">
-        {% else %}
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1f4C-cWV03_czRXhL1THkOdS9RDnAtPxRnA&s" alt="post">
-        {% endif %}
-        <h6>Author: {{post.author}}</h6>
-        <strong>Created on: {{post.created_on}}</strong>
-        <p>{{post.body}}</p>
-
-        {% if user.username == post.author.username %}
-        <a class="btn btn-outline-dark" href="{% url 'post_update' post.id %}">Update post</a>
-        <a class="btn btn-outline-dark" href="{% url 'post_delete' post.id %}">Delete post</a>
-        {% endif %}
+<div class="comments-container">
+    <h1>Post #{{post.id}}</h1>
+    <h2>{{post.title}}</h2>
+    <h2>{{post.subtitle}}</h2>
+    {% if post.image %}
+    <img src="{{post.image.url}}" alt="post">
+    {% else %}
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1f4C-cWV03_czRXhL1THkOdS9RDnAtPxRnA&s" alt="post">
+    {% endif %}
+    <h6>Author: {{post.author}}</h6>
+    <strong>Created on: {{post.created_on}}</strong>
+    <p>{{post.body}}</p>
+    
+    {% if user.username == post.author.username %}
+    <a class="btn btn-outline-dark" href="{% url 'post_update' post.id %}">Update post</a>
+    <a class="btn btn-outline-dark" href="{% url 'post_delete' post.id %}">Delete post</a>
+    {% endif %}
+</div>
 
         <hr>
 
@@ -34,7 +36,7 @@
             <h4>Post Comments</h4>
 
             {% for cm in comments %}
-                <div>
+                <div class="comment">
                     <label class="author">{{cm.author}}</label>
                     <p>{{cm.content}}</p>
                     <label class="date">{{cm.created_on}}</label>
