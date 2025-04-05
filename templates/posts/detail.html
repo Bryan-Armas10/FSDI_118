@@ -22,7 +22,7 @@
     {% endif %}
     <h6>Author: {{post.author}}</h6>
     <strong>Created on: {{post.created_on}}</strong>
-    <p>{{post.body}}</p>
+    <p>{{ post.body|linebreaks }}</p>
     
     {% if user.username == post.author.username %}
     <a class="btn btn-outline-dark" href="{% url 'post_update' post.id %}">Update post</a>

@@ -35,7 +35,11 @@ SECRET_KEY = 'django-insecure-8j4#lkzmgtxf2m))fpntxf@6dh(21@(h_5t=p%k58qjd-%&qlk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".herokuapp.com"
+]
 
 
 # Application definition
@@ -53,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,6 +147,7 @@ LOGOUT_REDIRECT_URL = "login"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email configuration
+# posiblemente borrar
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST='smtp.gmail.com'
@@ -150,3 +156,8 @@ EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False
 EMAIL_HOST_USER=env('SMTP_EMAIL')
 EMAIL_HOST_PASSWORD=env('SMTP_PASS')
+
+
+# if "DYNO" in os.environ:
+#     import django_heroku
+#     django_heroku.settings(locals())
