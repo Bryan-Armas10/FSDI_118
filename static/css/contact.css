@@ -1,4 +1,4 @@
-.contact-page {
+/* .contact-page {
     padding: 2rem 1rem;
 }
 
@@ -28,7 +28,6 @@
 }
 
 @media screen and (max-width: 640px) {
-    /* style for smartphones */
 
     .contact-page form {
         width: calc(100% - 24px);
@@ -36,4 +35,34 @@
         margin-right: auto;
     }
     
+} */
+
+.contact-page {
+    padding: 2rem 1rem;
+}
+
+.contact-page h1,
+.contact-page h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.contact-page form {
+    max-width: 500px;
+    margin: auto;
+    border: 2px solid var(--surface-color);
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: var(--neutral-color);
+    color: white;
+}
+
+.contact-page form label {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+    .contact-page form {
+        width: calc(100% - 24px);
+    }
 }

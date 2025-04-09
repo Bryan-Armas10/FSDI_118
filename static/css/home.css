@@ -1,4 +1,4 @@
-.home{
+/* .home{
     padding: 20px 0 0 0 ;
 }
 
@@ -15,4 +15,27 @@
     display: block;
 	margin-left: auto;
 	margin-right: auto;
+} */
+
+.home {
+    padding-top: 20px;
+    text-align: center;
+    color: var(--surface-color);
 }
+
+.home h1 {
+    color: var(--primary-color);
+    font-family: var(--lobster-font);
+}
+
+.home p {
+    color: var(--surface-color);
+}
+
+.home img {
+    display: block;
+    margin: 2rem auto;
+    max-width: 100%;
+    border-radius: 10px;
+}
+

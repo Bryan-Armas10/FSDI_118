@@ -1,4 +1,4 @@
-.create-post {
+/* .create-post {
     padding: 2rem 1rem;
 }
 
@@ -23,7 +23,6 @@
 }
 
 @media screen and (max-width: 640px) {
-    /* style for smartphones */
 
     .create-post form {
         width: calc(100% - 24px);
@@ -31,4 +30,33 @@
         margin-right: auto;
     }
     
+} */
+
+.create-post {
+    padding: 2rem 1rem;
+}
+
+.create-post h3 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.create-post form {
+    max-width: 500px;
+    margin: auto;
+    border: 2px solid var(--surface-color);
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: var(--neutral-color);
+    color: white;
+}
+
+.create-post form label {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+    .create-post form {
+        width: calc(100% - 24px);
+    }
 }
